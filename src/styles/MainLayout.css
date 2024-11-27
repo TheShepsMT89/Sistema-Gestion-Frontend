@@ -1,0 +1,226 @@
+/* src/components/MainLayout.css */
+
+body {
+  margin: 10;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Fondo general */
+}
+
+header {
+  background-color: #181818; /* Fondo oscuro del encabezado */
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; /* Fija el encabezado en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que el encabezado esté encima de otros elementos */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap; /* Permite que los elementos se acomoden en múltiples líneas si es necesario */
+  gap: 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  flex-grow: 1; /* Toma el espacio restante en la fila */
+  flex-basis: 0; /* Se reduce si es necesario */
+  overflow: hidden; /* Evita desbordamiento del texto */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap; /* Permite que el botón y el usuario se ajusten automáticamente */
+  flex-shrink: 0; /* Evita que el contenido se comprima */
+}
+
+header p {
+  margin: 0;
+  font-size: 14px;
+  white-space: nowrap; /* Evita que el texto se parta */
+}
+
+header button {
+  padding: 8px 12px;
+  background-color: #ff4b5c;
+  border: none;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex-shrink: 20; /* Evita que el botón se reduzca demasiado */
+  max-width: 500%; /* Asegura que nunca salga del contenedor */
+  overflow: hidden; /* Evita que el texto desborde */
+  text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto es muy largo */
+  white-space: nowrap;
+}
+
+header button:hover {
+  background-color: #e63946;
+}
+
+nav {
+  background-color: #212121; /* Fondo diferente para el navbar */
+  color: white;
+  display: flex;
+  justify-content: center; /* Centra los elementos del navbar */
+  gap: 20px; /* Espaciado entre los enlaces */
+  padding: 10px 0; /* Espaciado vertical */
+  position: fixed; /* Fija el navbar justo debajo del encabezado */
+  top: 70px; /* Ajusta según la altura del encabezado */
+  left: 0;
+  width: 100%;
+  z-index: 999; /* Asegura que esté debajo del encabezado pero encima del contenido */
+  border-top: 2px solid #424242; /* Línea divisoria */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px; /* Espaciado entre elementos del navbar */
+}
+
+nav li {
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+nav li:hover {
+  background-color: #424242;
+}
+
+main {
+  padding: 120px 20px; /* Deja espacio para el encabezado y el navbar */
+  background-color: #1a1a1a;
+  min-height: calc(100vh - 160px); /* Resta el alto del header y nav */
+}
+
+main h1 {
+  font-size: 24px;
+  color: #00d4ff; /* Azul neón */
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+  header {
+    flex-wrap: wrap; /* Acomoda los elementos en múltiples líneas en pantallas pequeñas */
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 20px; /* Reduce el tamaño del título */
+    flex-basis: 100%; /* Ocupa todo el ancho disponible */
+  }
+
+  header button {
+    font-size: 120px; /* Reduce el tamaño del texto del botón */
+    padding: 6px 10px;
+  }
+
+  nav ul {
+    flex-wrap: wrap; /* Permite que el menú se acomode en pantallas pequeñas */
+    justify-content: space-evenly;
+  }
+}
+
+
+/* Animación inicial */
+.animated-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Cambios de color y animación al pasar el cursor */
+.animated-icon:hover {
+  color: #36b5b0; /* Cambia el color */
+  transform: scale(1.2) translateY(-5px) rotate(-10deg); /* Agranda, mueve hacia arriba y rota */
+}
+
+/* Botón de navegación general */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s ease;
+}
+
+/* Efecto hover en los botones del navbar */
+.nav-item:hover {
+  background-color: #424242; /* Cambia el fondo */
+  transform: translateY(-3px) rotate(2deg); /* Mueve ligeramente y rota */
+}
+
+/* Efecto de salto gracioso al pasar el cursor */
+.animated-icon:hover {
+  animation: funny-bounce 0.5s ease-out;
+}
+
+/* Keyframes para salto divertido */
+@keyframes funny-bounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-10px) scale(1.1);
+  }
+  50% {
+    transform: translateY(5px) scale(0.9);
+  }
+  75% {
+    transform: translateY(-5px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.notification-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  transform: translate(50%, -50%);
+}
+
+
+.notification-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  transform: translate(50%, -50%);
+}
+
+
+.facturas-vencidas-badge {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-left: 5px;
+}
